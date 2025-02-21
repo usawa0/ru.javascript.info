@@ -33,7 +33,7 @@ function onSocketConnect(ws) {
   clients.add(ws);
   log(`новое подключение`);
 
-  ws.on('сообщение', function(message) {
+  ws.on('message', function(message) {
     log(`получено сообщение: ${message}`);
 
     message = message.slice(0, 50); // максимальная длина сообщения 50 
@@ -43,7 +43,7 @@ function onSocketConnect(ws) {
     }
   });
 
-  ws.on('закрыть', function() {
+  ws.on('close', function() {
     log(`подключение закрыто`);
     clients.delete(ws);
   });
