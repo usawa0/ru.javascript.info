@@ -39,7 +39,7 @@ function onSocketConnect(ws) {
     message = message.slice(0, 50); // максимальная длина сообщения 50 
 
     for(let client of clients) {
-      client.send(message);
+      client.send(`${message}`);
     }
   });
 
